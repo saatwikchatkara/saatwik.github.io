@@ -156,6 +156,7 @@ body {
     background: linear-gradient(135deg, #00ffff, #ff00ff, #ffff00);
     background-size: 300% 300%;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 3s ease-in-out infinite;
 }
@@ -555,7 +556,7 @@ body {
 /* Skills Section */
 .skills {
     padding: 100px 0;
-    background: #ebedfc;
+    background: #2a3168;
 }
 
 .skills-grid {

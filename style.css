@@ -555,6 +555,8 @@ body {
 .skills {
     padding: 100px 0;
     background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+    display: block;
+    visibility: visible;
 }
 
 .skills-grid {
@@ -770,41 +772,22 @@ body {
 
 /* Animations */
 @keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes gradientShift {
-
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 @keyframes typewriter {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100%;
-    }
+    from { width: 0; }
+    to { width: 100%; }
 }
 
 @keyframes blink {
-    50% {
-        border-color: transparent;
-    }
+    50% { border-color: transparent; }
 }
 
 @keyframes fadeInUp {
@@ -812,7 +795,6 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -820,56 +802,24 @@ body {
 }
 
 @keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
 }
 
 @keyframes orbit {
-    from {
-        transform: rotate(0deg) translateX(150px) rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg) translateX(150px) rotate(-360deg);
-    }
+    from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
 }
 
 @keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0);
-    }
-
-    40% {
-        transform: translateY(-10px);
-    }
-
-    60% {
-        transform: translateY(-5px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
 }
 
 @keyframes pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 /* Responsive Design */
@@ -947,7 +897,7 @@ body {
 
 /* Scroll animations */
 .fade-in {
-    opacity: 0.1;
+    opacity: 0;
     transform: translateY(50px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -972,12 +922,10 @@ body {
         opacity: 0;
         transform: translateY(50px) scale(0.95) rotateY(10deg);
     }
-
     60% {
         opacity: 0.8;
         transform: translateY(-10px) scale(1.02) rotateY(-2deg);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0) scale(1) rotateY(0deg);
@@ -1001,7 +949,6 @@ section.visible {
         opacity: 0;
         transform: translateY(30px);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -1011,7 +958,7 @@ section.visible {
 /* Quantum-themed skill animations */
 .skill-item {
     opacity: 1;
-    transform: translateY(50px) scale(0.8);
+    transform: translateY(0) scale(1);
     transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -1031,12 +978,10 @@ section.visible {
         opacity: 0;
         transform: translateY(50px) scale(0.8) rotateX(20deg);
     }
-
     50% {
         opacity: 0.7;
         transform: translateY(-10px) scale(1.05) rotateX(-5deg);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0) scale(1) rotateX(0deg);
@@ -1048,22 +993,18 @@ section.visible {
         transform: scale(1) rotate(0deg);
         color: #00ffff;
     }
-
     25% {
         transform: scale(1.2) rotate(90deg);
         color: #ff00ff;
     }
-
     50% {
         transform: scale(1.1) rotate(180deg);
         color: #ffff00;
     }
-
     75% {
         transform: scale(1.2) rotate(270deg);
         color: #00ff00;
     }
-
     100% {
         transform: scale(1) rotate(360deg);
         color: #00ffff;
@@ -1073,7 +1014,7 @@ section.visible {
 /* Enhanced hover effects for skills with language-specific colors */
 .skill-item:hover {
     transform: translateY(-15px) scale(1.05);
-    box-shadow:
+    box-shadow: 
         0 25px 50px rgba(0, 255, 255, 0.3),
         0 0 30px rgba(0, 255, 255, 0.2);
 }
@@ -1084,7 +1025,7 @@ section.visible {
 
 /* Python - Blue/Yellow theme */
 .skill-item:has(.fa-python):hover {
-    box-shadow:
+    box-shadow: 
         0 25px 50px rgba(55, 118, 171, 0.4),
         0 0 30px rgba(255, 212, 59, 0.3);
     border-color: rgba(55, 118, 171, 0.6);
@@ -1097,7 +1038,7 @@ section.visible {
 
 /* JavaScript - Yellow theme */
 .skill-item:has(.fa-js-square):hover {
-    box-shadow:
+    box-shadow: 
         0 25px 50px rgba(247, 223, 30, 0.4),
         0 0 30px rgba(247, 223, 30, 0.3);
     border-color: rgba(247, 223, 30, 0.6);
@@ -1110,7 +1051,7 @@ section.visible {
 
 /* PHP - Purple theme */
 .skill-item:has(.fa-php):hover {
-    box-shadow:
+    box-shadow: 
         0 25px 50px rgba(119, 123, 180, 0.4),
         0 0 30px rgba(119, 123, 180, 0.3);
     border-color: rgba(119, 123, 180, 0.6);
@@ -1123,7 +1064,7 @@ section.visible {
 
 /* HTML5 - Orange theme */
 .skill-item:has(.fa-html5):hover {
-    box-shadow:
+    box-shadow: 
         0 25px 50px rgba(227, 76, 38, 0.4),
         0 0 30px rgba(227, 76, 38, 0.3);
     border-color: rgba(227, 76, 38, 0.6);
@@ -1136,7 +1077,7 @@ section.visible {
 
 /* Git - Orange/Red theme */
 .skill-item:has(.fa-git-alt):hover {
-    box-shadow:
+    box-shadow: 
         0 25px 50px rgba(240, 80, 51, 0.4),
         0 0 30px rgba(240, 80, 51, 0.3);
     border-color: rgba(240, 80, 51, 0.6);
@@ -1149,7 +1090,7 @@ section.visible {
 
 /* Microsoft/MATLAB - Blue theme */
 .skill-item:has(.fa-microsoft):hover {
-    box-shadow:
+    box-shadow: 
         0 25px 50px rgba(0, 120, 215, 0.4),
         0 0 30px rgba(0, 120, 215, 0.3);
     border-color: rgba(0, 120, 215, 0.6);
@@ -1162,7 +1103,7 @@ section.visible {
 
 /* C++ - Blue theme */
 .skill-item:has(.fa-code):hover {
-    box-shadow:
+    box-shadow: 
         0 25px 50px rgba(0, 89, 156, 0.4),
         0 0 30px rgba(0, 89, 156, 0.3);
     border-color: rgba(0, 89, 156, 0.6);
@@ -1178,7 +1119,7 @@ section.visible {
 .skill-item:has(.fa-flask):hover,
 .skill-item:has(.fa-cogs):hover,
 .skill-item:has(.fa-wave-square):hover {
-    box-shadow:
+    box-shadow: 
         0 25px 50px rgba(0, 255, 255, 0.4),
         0 0 30px rgba(255, 0, 255, 0.3);
     border-color: rgba(0, 255, 255, 0.6);
@@ -1198,7 +1139,7 @@ section.visible {
 
 /* Database - Green theme */
 .skill-item:has(.fa-database):hover {
-    box-shadow:
+    box-shadow: 
         0 25px 50px rgba(76, 175, 80, 0.4),
         0 0 30px rgba(76, 175, 80, 0.3);
     border-color: rgba(76, 175, 80, 0.6);
@@ -1210,12 +1151,9 @@ section.visible {
 }
 
 @keyframes quantumPulse {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: scale(1);
     }
-
     50% {
         transform: scale(1.1);
     }

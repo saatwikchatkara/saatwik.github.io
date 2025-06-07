@@ -99,9 +99,11 @@ document.querySelectorAll('section, .project-card, .research-item, .skill-item')
     observer.observe(el);
 });
 
-// Add quantum pulse effect to skill items
-document.querySelectorAll('.skill-item').forEach((item, index) => {
-    item.style.animationDelay = `${index * 0.1}s`;
+// Initialize skill items after DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.skill-item').forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.1}s`;
+    });
 });
 
 // Animate skill bars
@@ -121,12 +123,19 @@ function animateQuantumSkills() {
     const skillItems = document.querySelectorAll('.skill-item');
     skillItems.forEach((item, index) => {
         setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0) scale(1)';
             item.classList.add('quantum-reveal');
+            
             const icon = item.querySelector('.skill-icon');
             if (icon) {
-                icon.style.animation = 'quantumSpin 1s ease-out';
+                icon.style.animation = 'quantumSpin 1.5s ease-out';
+                // Reset animation after completion
+                setTimeout(() => {
+                    icon.style.animation = '';
+                }, 1500);
             }
-        }, index * 150);
+        }, index * 200);
     });
 }
 
@@ -208,8 +217,33 @@ function createQuantumParticle() {
     }, 8000);
 }
 
-// Create floating particles periodically
-setInterval(createQuantumParticle, 2000);
+// Create floating particles periodically with varying intervals
+setInterval(createQuantumParticle, 1500);
+setInterval(() => {
+    createQuantumParticle();
+    setTimeout(createQuantumParticle, 300);
+}, 3000);
+
+// Add quantum tunnel effect to sections
+function addQuantumTunnel() {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.addEventListener('mouseenter', () => {
+            section.style.background = section.style.background + ', radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 255, 255, 0.1) 0%, transparent 50%)';
+        });
+        
+        section.addEventListener('mousemove', (e) => {
+            const rect = section.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            section.style.setProperty('--mouse-x', x + '%');
+            section.style.setProperty('--mouse-y', y + '%');
+        });
+    });
+}
+
+// Initialize quantum effects
+document.addEventListener('DOMContentLoaded', addQuantumTunnel);
 
 // Add floating particle animation to CSS
 const style = document.createElement('style');

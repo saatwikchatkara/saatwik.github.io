@@ -580,7 +580,11 @@ body {
 }
 
 .skill-item {
-    margin-bottom: 1.5rem;
+   
+    color: #00ffff;
+        font-family: 'Orbitron', monospace;
+        margin-bottom: 2rem;
+        text-align: center;
 }
 
 .skill-item span {

@@ -94,16 +94,30 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all sections and cards
-document.querySelectorAll('section, .project-card, .research-item, .skill-item').forEach(el => {
+document.querySelectorAll('section, .project-card, .skill-item').forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
 });
 
 // Initialize skill items after DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.skill-item').forEach((item, index) => {
+    // Ensure skills are visible and properly initialized
+    const skillItems = document.querySelectorAll('.skill-item');
+    console.log('Found skill items:', skillItems.length);
+    
+    skillItems.forEach((item, index) => {
         item.style.animationDelay = `${index * 0.1}s`;
+        // Make sure items are visible
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0) scale(1)';
     });
+
+    // Force skills section to be visible
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+        skillsSection.style.display = 'block';
+        skillsSection.style.visibility = 'visible';
+    }
 });
 
 // Animate skill bars
@@ -121,12 +135,15 @@ function animateSkillBars() {
 // Quantum-themed skills animation
 function animateQuantumSkills() {
     const skillItems = document.querySelectorAll('.skill-item');
+    console.log('Animating skills:', skillItems.length);
+    
     skillItems.forEach((item, index) => {
+        // Remove any initial hiding
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0) scale(1)';
+        item.classList.add('quantum-reveal');
+        
         setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0) scale(1)';
-            item.classList.add('quantum-reveal');
-            
             const icon = item.querySelector('.skill-icon');
             if (icon) {
                 icon.style.animation = 'quantumSpin 1.5s ease-out';

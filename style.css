@@ -947,7 +947,7 @@ body {
 
 /* Scroll animations */
 .fade-in {
-    opacity: 0;
+    opacity: 0.1;
     transform: translateY(50px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -1010,7 +1010,7 @@ section.visible {
 
 /* Quantum-themed skill animations */
 .skill-item {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(50px) scale(0.8);
     transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

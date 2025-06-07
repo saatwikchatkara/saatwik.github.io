@@ -83,6 +83,11 @@ const observer = new IntersectionObserver((entries) => {
             if (entry.target.id === 'about') {
                 animateNumbers();
             }
+            
+            // Add entrance animation for experience items
+            if (entry.target.classList.contains('experience-item')) {
+                entry.target.style.animationDelay = `${Array.from(document.querySelectorAll('.experience-item')).indexOf(entry.target) * 0.2}s`;
+            }
         }
     });
 }, observerOptions);

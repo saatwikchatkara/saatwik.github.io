@@ -565,7 +565,7 @@ body {
 }
 
 .skill-category {
-    background: linear-gradient(135deg, rgba(112, 112, 152, 0.8), rgba(10, 10, 10, 0.8));
+    background: linear-gradient(135deg, rgba(112, 112, 152, 0.8), rgba(12, 25, 90, 0.8));
     padding: 2rem;
     border-radius: 15px;
     border: 1px solid rgba(0, 255, 255, 0.3);

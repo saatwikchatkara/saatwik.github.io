@@ -1,857 +1,428 @@
 
-/* CSS Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    height: 100%;
-    width: 100%;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: #0a0a0a;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-.navbar.scrolled {
-    background: rgba(10, 10, 10, 0.98);
-    box-shadow: 0 2px 20px rgba(0, 255, 255, 0.1);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-}
-
-.nav-logo {
-    display: flex;
-    align-items: center;
-    font-family: 'Orbitron', monospace;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #00ffff;
-}
-
-.quantum-symbol {
-    font-size: 2rem;
-    margin-right: 10px;
-    animation: rotate 4s linear infinite;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-link {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #00ffff, #ff00ff);
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: #00ffff;
-    margin: 3px 0;
-    transition: 0.3s;
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 100%);
-    overflow: hidden;
-}
-
-.quantum-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="quantum" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%2300ffff" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23quantum)"/></svg>');
-    animation: float 20s ease-in-out infinite;
-}
-
-.hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 20px;
-    z-index: 1;
-}
-
-.hero-text {
-    flex: 1;
-    color: #fff;
-}
-
-.hero-title {
-    font-family: 'Orbitron', monospace;
-    font-size: 3.5rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #00ffff, #ff00ff, #ffff00);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientShift 3s ease-in-out infinite;
-}
-
-.typewriter {
-    border-right: 3px solid #00ffff;
-    animation: typewriter 4s steps(40) 1s both, blink 1s step-end infinite;
-}
-
-.hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.8;
-    animation: fadeInUp 1s ease-out 0.5s both;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    animation: fadeInUp 1s ease-out 1s both;
-}
-
-.btn {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #00ffff, #0080ff);
-    color: #000;
-}
-
-.btn-secondary {
-    background: transparent;
-    color: #00ffff;
-    border: 2px solid #00ffff;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
-}
-
-.hero-visual {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.quantum-particle {
-    width: 100px;
-    height: 100px;
-    border: 2px solid #00ffff;
-    border-radius: 50%;
-    position: absolute;
-    animation: orbit 10s linear infinite;
-}
-
-.quantum-particle:nth-child(2) {
-    animation-delay: -3.33s;
-    border-color: #ff00ff;
-}
-
-.quantum-particle:nth-child(3) {
-    animation-delay: -6.66s;
-    border-color: #ffff00;
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #00ffff;
-    animation: bounce 2s ease-in-out infinite;
-}
-
-.scroll-arrow {
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid #00ffff;
-    border-bottom: 2px solid #00ffff;
-    transform: rotate(45deg);
-}
-
-/* Section Styles */
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.section-title {
-    font-family: 'Orbitron', monospace;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 1rem;
-}
-
-.title-underline {
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, #00ffff, #ff00ff);
-    margin: 0 auto;
-}
-
-/* About Section */
-.about {
-    padding: 100px 0;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.about-text {
-    color: #fff;
-}
-
-.lead {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    color: #00ffff;
-}
-
-.about-text p {
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-}
-
-.achievements {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.achievement {
-    text-align: center;
-    padding: 1.5rem;
-    background: rgba(0, 255, 255, 0.1);
-    border-radius: 10px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-}
-
-.achievement-number {
-    font-family: 'Orbitron', monospace;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #00ffff;
-    margin-bottom: 0.5rem;
-}
-
-.achievement-text {
-    color: #fff;
-    opacity: 0.8;
-}
-
-.quantum-circuit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-}
-
-.qubit-line {
-    width: 100px;
-    height: 2px;
-    background: #00ffff;
-    position: relative;
-}
-
-.quantum-gate {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #00ffff, #0080ff);
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    border-radius: 10px;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-/* Projects Section */
-.projects {
-    padding: 100px 0;
-    background: #0a0a0a;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(10, 10, 10, 0.8));
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.project-card:hover::before {
-    left: 100%;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
-}
-
-.project-icon {
-    font-size: 3rem;
-    color: #00ffff;
-    margin-bottom: 1rem;
-}
-
-.project-card h3 {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-family: 'Orbitron', monospace;
-}
-
-.project-card p {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.tag {
-    background: rgba(0, 255, 255, 0.2);
-    color: #00ffff;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-}
-
-.project-link {
-    color: #00ffff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.project-link:hover {
-    color: #ff00ff;
-}
-
-/* Education Section */
-.education {
-    padding: 100px 0;
-    background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
-}
-
-.education-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.education-item {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: rgba(0, 255, 255, 0.05);
-    border-radius: 15px;
-    border-left: 4px solid #00ffff;
-}
-
-.education-year {
-    font-family: 'Orbitron', monospace;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #00ffff;
-    min-width: 100px;
-}
-
-.education-details h3 {
-    color: #fff;
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-}
-
-.education-details h4 {
-    color: #ff00ff;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.education-details p {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 1rem;
-}
-
-.education-grade {
-    color: #00ffff;
-    font-weight: 600;
-}
-
-/* Experience Section */
-.experience {
-    padding: 100px 0;
-    background: #0a0a0a;
-}
-
-.experience-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.experience-item {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(10, 10, 10, 0.8));
-    border-radius: 15px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    transition: all 0.3s ease;
-}
-
-.experience-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.1);
-}
-
-.experience-icon {
-    font-size: 3rem;
-    color: #00ffff;
-    min-width: 80px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 0.5rem;
-}
-
-.experience-details h3 {
-    color: #fff;
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    font-family: 'Orbitron', monospace;
-}
-
-.experience-details h4 {
-    color: #ff00ff;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-weight: 400;
-}
-
-.experience-details p {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-}
-
-/* Skills Section */
-.skills {
-    padding: 100px 0;
-    background: #0a0a0a;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-}
-
-.skill-category {
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(10, 10, 10, 0.8));
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-}
-
-.skill-category h3 {
-    color: #00ffff;
-    font-family: 'Orbitron', monospace;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.skill-item {
-    margin-bottom: 1.5rem;
-}
-
-.skill-item span {
-    color: #fff;
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.skill-bar {
-    width: 100%;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-progress {
-    height: 100%;
-    background: linear-gradient(90deg, #00ffff, #ff00ff);
-    border-radius: 4px;
-    transition: width 2s ease-in-out;
-}
-
-/* Contact Section */
-.contact {
-    padding: 100px 0;
-    background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-}
-
-.contact-info {
-    color: #fff;
-}
-
-.contact-info h3 {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #00ffff;
-}
-
-.contact-info p {
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.contact-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.contact-method {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: rgba(0, 255, 255, 0.1);
-    border-radius: 10px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-}
-
-.contact-method i {
-    color: #00ffff;
-    font-size: 1.2rem;
-}
-
-.contact-form {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    border-radius: 8px;
-    color: #fff;
-    font-family: inherit;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #00ffff;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-}
-
-/* Footer */
-.footer {
-    padding: 2rem 0;
-    background: #0a0a0a;
-    border-top: 1px solid rgba(0, 255, 255, 0.3);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-text {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.footer-social {
-    display: flex;
-    gap: 1rem;
-}
-
-.footer-social a {
-    color: #00ffff;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.footer-social a:hover {
-    color: #ff00ff;
-    transform: translateY(-3px);
-}
-
-/* Animations */
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-@keyframes typewriter {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes blink {
-    50% { border-color: transparent; }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-}
-
-@keyframes orbit {
-    from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
-    to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-    
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: rgba(10, 10, 10, 0.95);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
-    }
-    
-    .nav-menu.active {
-        left: 0;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .about-content,
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .achievements {
-        grid-template-columns: 1fr;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .education-item,
-    .experience-item {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .education-year {
-        font-size: 1.5rem;
-        min-width: auto;
-    }
-    
-    .experience-icon {
-        font-size: 2rem;
-        min-width: auto;
-        justify-content: center;
-        padding-top: 0;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
-
-/* Scroll animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saatwik Chatkara - Quantum Computing Enthusiast</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="quantum-symbol">⚛</span>
+                <span>Saatwik Chatkara</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="quantum-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="typewriter">Quantum Computing Enthusiast</span>
+                </h1>
+                <p class="hero-subtitle">Exploring the fascinating world of quantum mechanics and computation</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="quantum-particle"></div>
+                <div class="quantum-particle"></div>
+                <div class="quantum-particle"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">Passionate quantum computing researcher and enthusiast dedicated to exploring the revolutionary potential of quantum technologies.</p>
+                    <p>With a deep fascination for quantum mechanics and its computational applications, I've been actively involved in research, experimentation, and development of quantum algorithms and protocols.</p>
+                    <div class="achievements">
+                        <div class="achievement">
+                            <div class="achievement-number">10+</div>
+                            <div class="achievement-text">Quantum Projects</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">3+</div>
+                            <div class="achievement-text">Programming Languages</div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-number">50+</div>
+                            <div class="achievement-text">Qubits Simulated</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="quantum-circuit">
+                        <div class="qubit-line"></div>
+                        <div class="quantum-gate">H</div>
+                        <div class="quantum-gate">X</div>
+                        <div class="quantum-gate">CNOT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quantum Projects</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Quantum Teleportation Protocol</h3>
+                    <p>Implementation of quantum teleportation using Qiskit, demonstrating entanglement and quantum state transfer.</p>
+                    <div class="project-tags">
+                        <span class="tag">Qiskit</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Entanglement</span>
+                    </div>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Grover's Algorithm</h3>
+                    <p>Quantum search algorithm implementation for unstructured database search with quadratic speedup.</p>
+                    <div class="project-tags">
+                        <span class="tag">Cirq</span>
+                        <span class="tag">Algorithm</span>
+                        <span class="tag">Search</span>
+                    </div>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Quantum Cryptography</h3>
+                    <p>BB84 quantum key distribution protocol ensuring secure communication through quantum mechanics.</p>
+                    <div class="project-tags">
+                        <span class="tag">Security</span>
+                        <span class="tag">QKD</span>
+                        <span class="tag">Photons</span>
+                    </div>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Shor's Algorithm</h3>
+                    <p>Quantum factorization algorithm capable of breaking RSA encryption with exponential speedup.</p>
+                    <div class="project-tags">
+                        <span class="tag">Factorization</span>
+                        <span class="tag">RSA</span>
+                        <span class="tag">IBM Quantum</span>
+                    </div>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Quantum Machine Learning</h3>
+                    <p>Variational quantum classifier using parameterized quantum circuits for pattern recognition.</p>
+                    <div class="project-tags">
+                        <span class="tag">VQC</span>
+                        <span class="tag">ML</span>
+                        <span class="tag">Classification</span>
+                    </div>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <h3>Quantum Simulator</h3>
+                    <p>Custom quantum circuit simulator built from scratch to understand quantum gate operations.</p>
+                    <div class="project-tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">Simulator</span>
+                        <span class="tag">Gates</span>
+                    </div>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="education-content">
+                <div class="education-item">
+                    <div class="education-year">2024</div>
+                    <div class="education-details">
+                        <h3>Bachelor's in Computer Science</h3>
+                        <h4>University Name</h4>
+                        <p>Specialized in Quantum Computing and Algorithms. Relevant coursework: Linear Algebra, Quantum Mechanics, Computer Science Fundamentals, Algorithms and Data Structures.</p>
+                        <div class="education-grade">CGPA: 8.5/10</div>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-year">2020</div>
+                    <div class="education-details">
+                        <h3>Higher Secondary Education</h3>
+                        <h4>School Name</h4>
+                        <p>Science Stream with Mathematics, Physics, and Chemistry. Strong foundation in mathematical concepts essential for quantum computing.</p>
+                        <div class="education-grade">Grade: 90%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience & Achievements</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="experience-content">
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="experience-details">
+                        <h3>Quantum Computing Hackathon</h3>
+                        <h4>Participant/Winner • 2024</h4>
+                        <p>Developed quantum algorithms for optimization problems using Qiskit. Collaborated with team members to create innovative solutions for real-world applications.</p>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="experience-details">
+                        <h3>IBM Qiskit Certification</h3>
+                        <h4>Certified Developer • 2024</h4>
+                        <p>Completed comprehensive training in quantum programming using IBM Qiskit framework. Demonstrated proficiency in quantum circuit design and quantum algorithms.</p>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="experience-details">
+                        <h3>Quantum Computing Study Group</h3>
+                        <h4>Co-founder & Lead • 2023-Present</h4>
+                        <p>Founded and lead a study group focused on quantum computing concepts. Organize weekly discussions, paper reviews, and hands-on coding sessions.</p>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="experience-details">
+                        <h3>Open Source Contributions</h3>
+                        <h4>Contributor • 2023-Present</h4>
+                        <p>Active contributor to quantum computing open source projects. Contributed code improvements, documentation, and bug fixes to various quantum libraries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quantum Skills & Technologies</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Quantum Frameworks</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Qiskit</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Cirq</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>PennyLane</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Forest</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Python</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>C++</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Julia</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>MATLAB</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Quantum Concepts</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Quantum Algorithms</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Error Correction</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Quantum ML</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Quantum Cryptography</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Discuss Quantum Computing</h3>
+                    <p>Interested in collaborating on quantum computing research or discussing the latest developments in the field? I'd love to hear from you!</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>saatwik.chatkara@email.com</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <span>linkedin.com/in/saatwikchatkara</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/saatwikchatkara</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Research Gate Profile</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Saatwik Chatkara. Exploring the quantum realm, one qubit at a time.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,777 @@
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #0a0a0a;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 255, 255, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #00ffff;
+}
+
+.quantum-symbol {
+    font-size: 2rem;
+    margin-right: 10px;
+    animation: rotate 4s linear infinite;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #00ffff;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 100%);
+    overflow: hidden;
+}
+
+.quantum-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="quantum" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%2300ffff" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23quantum)"/></svg>');
+    animation: float 20s ease-in-out infinite;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.hero-text {
+    flex: 1;
+    color: #fff;
+}
+
+.hero-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #00ffff, #ff00ff, #ffff00);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+.typewriter {
+    border-right: 3px solid #00ffff;
+    animation: typewriter 4s steps(40) 1s both, blink 1s step-end infinite;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    animation: fadeInUp 1s ease-out 1s both;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00ffff, #0080ff);
+    color: #000;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.quantum-particle {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #00ffff;
+    border-radius: 50%;
+    position: absolute;
+    animation: orbit 10s linear infinite;
+}
+
+.quantum-particle:nth-child(2) {
+    animation-delay: -3.33s;
+    border-color: #ff00ff;
+}
+
+.quantum-particle:nth-child(3) {
+    animation-delay: -6.66s;
+    border-color: #ffff00;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #00ffff;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid #00ffff;
+    border-bottom: 2px solid #00ffff;
+    transform: rotate(45deg);
+}
+
+/* Section Styles */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.title-underline {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    margin: 0 auto;
+}
+
+/* About Section */
+.about {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text {
+    color: #fff;
+}
+
+.lead {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #00ffff;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.achievements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.achievement {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.achievement-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00ffff;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-text {
+    color: #fff;
+    opacity: 0.8;
+}
+
+.quantum-circuit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.qubit-line {
+    width: 100px;
+    height: 2px;
+    background: #00ffff;
+    position: relative;
+}
+
+.quantum-gate {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #00ffff, #0080ff);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border-radius: 10px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Projects Section */
+.projects {
+    padding: 100px 0;
+    background: #0a0a0a;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(10, 10, 10, 0.8));
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+}
+
+.project-icon {
+    font-size: 3rem;
+    color: #00ffff;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Orbitron', monospace;
+}
+
+.project-card p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    background: rgba(0, 255, 255, 0.2);
+    color: #00ffff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.project-link {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    color: #ff00ff;
+}
+
+/* Research Section */
+.research {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+}
+
+.research-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.research-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(0, 255, 255, 0.05);
+    border-radius: 15px;
+    border-left: 4px solid #00ffff;
+}
+
+.research-year {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00ffff;
+    min-width: 100px;
+}
+
+.research-details h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.research-details p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
+
+.research-link {
+    color: #ff00ff;
+    font-weight: 600;
+}
+
+/* Skills Section */
+.skills {
+    padding: 100px 0;
+    background: #0a0a0a;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.skill-category {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(10, 10, 10, 0.8));
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.skill-category h3 {
+    color: #00ffff;
+    font-family: 'Orbitron', monospace;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+}
+
+.skill-item span {
+    color: #fff;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    border-radius: 4px;
+    transition: width 2s ease-in-out;
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-info {
+    color: #fff;
+}
+
+.contact-info h3 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #00ffff;
+}
+
+.contact-info p {
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.contact-method i {
+    color: #00ffff;
+    font-size: 1.2rem;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+/* Footer */
+.footer {
+    padding: 2rem 0;
+    background: #0a0a0a;
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    color: #00ffff;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #ff00ff;
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes orbit {
+    from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: rgba(10, 10, 10, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievements {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Scroll animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

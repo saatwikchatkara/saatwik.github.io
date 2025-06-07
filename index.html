@@ -17,8 +17,9 @@
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <div class="nav-logo">
+        <img src="profile.jpg" alt="Saatwik Chatkara" class="profile-image" />
         <span class="quantum-symbol">⚛</span>
-        <span>Saatwik Chatkara</span>
+        <span class="name-text">Saatwik Chatkara</span>
       </div>
       <div class="nav-menu" id="nav-menu">
         <a href="#home" class="nav-link">Home</a>
@@ -337,15 +338,9 @@
           </div>
         </div>
 
-
-
-
       </div>
     </div>
   </section>
-
-
-
 
   <section id="skills" class="skills">
     <div class="container">
@@ -353,7 +348,7 @@
         <h2 class="section-title">Skills & Technologies</h2>
         <div class="title-underline"></div>
       </div>
-      
+
       <div class="skill-category">
         <h3>Programming Languages</h3>
         <div class="skills-subcategory" style="display: flex; flex-wrap: wrap; gap: 20px;">
@@ -383,58 +378,58 @@
           </div>
         </div>
 
-      <div class="skill-category">
-        <h3>Quantum Computing & Physics</h3>
-        <div class="skills-subcategory">
-          <div class="skill-item">
-            <i class="fas fa-atom skill-icon"></i>
-            <h4>Qiskit</h4>
-            <p>Quantum circuit design, VQE algorithms, quantum simulation</p>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-cogs skill-icon"></i>
-            <h4>Quantum Algorithms</h4>
-            <p>Quantum gates, entanglement, quantum advantage applications</p>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-wave-square skill-icon"></i>
-            <h4>PennyLane</h4>
-            <p>Quantum machine learning, hybrid algorithms, optimization</p>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-flask skill-icon"></i>
-            <h4>Scientific Computing</h4>
-            <p>Computational physics, numerical methods, CFD simulations</p>
+        <div class="skill-category">
+          <h3>Quantum Computing & Physics</h3>
+          <div class="skills-subcategory">
+            <div class="skill-item">
+              <i class="fas fa-atom skill-icon"></i>
+              <h4>Qiskit</h4>
+              <p>Quantum circuit design, VQE algorithms, quantum simulation</p>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-cogs skill-icon"></i>
+              <h4>Quantum Algorithms</h4>
+              <p>Quantum gates, entanglement, quantum advantage applications</p>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-wave-square skill-icon"></i>
+              <h4>PennyLane</h4>
+              <p>Quantum machine learning, hybrid algorithms, optimization</p>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-flask skill-icon"></i>
+              <h4>Scientific Computing</h4>
+              <p>Computational physics, numerical methods, CFD simulations</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="skill-category">
-        <h3>Web Development & Tools</h3>
-        <div class="skills-subcategory">
-          <div class="skill-item">
-            <i class="fab fa-html5 skill-icon"></i>
-            <h4>HTML5 & CSS3</h4>
-            <p>Responsive design, modern CSS Grid, animations, accessibility</p>
-          </div>
-          <div class="skill-item">
-            <i class="fab fa-git-alt skill-icon"></i>
-            <h4>Git & Version Control</h4>
-            <p>Collaborative development, branching strategies, code management</p>
-          </div>
-          <div class="skill-item">
-            <i class="fab fa-microsoft skill-icon"></i>
-            <h4>MATLAB</h4>
-            <p>Data analysis, spectroscopy processing, mathematical modeling</p>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-database skill-icon"></i>
-            <h4>Database Systems</h4>
-            <p>SQL, data modeling, backend integration, optimization</p>
+        <div class="skill-category">
+          <h3>Web Development & Tools</h3>
+          <div class="skills-subcategory">
+            <div class="skill-item">
+              <i class="fab fa-html5 skill-icon"></i>
+              <h4>HTML5 & CSS3</h4>
+              <p>Responsive design, modern CSS Grid, animations, accessibility</p>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-git-alt skill-icon"></i>
+              <h4>Git & Version Control</h4>
+              <p>Collaborative development, branching strategies, code management</p>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-microsoft skill-icon"></i>
+              <h4>MATLAB</h4>
+              <p>Data analysis, spectroscopy processing, mathematical modeling</p>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-database skill-icon"></i>
+              <h4>Database Systems</h4>
+              <p>SQL, data modeling, backend integration, optimization</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </section>
 
   <!-- Contact Section -->
@@ -489,7 +484,7 @@
       link.addEventListener('click', e => {
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
-        document.getElementById(targetId).scrollIntoView({behavior: 'smooth'});
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
       });
     });
 

@@ -50,7 +50,7 @@ window.addEventListener('scroll', () => {
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -73,17 +73,18 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            
+
             // Animate skill bars when skills section is visible
             if (entry.target.id === 'skills') {
                 animateSkillBars();
+                animateQuantumSkills();
             }
-            
+
             // Animate achievement numbers when about section is visible
             if (entry.target.id === 'about') {
                 animateNumbers();
             }
-            
+
             // Add entrance animation for experience items
             if (entry.target.classList.contains('experience-item')) {
                 entry.target.style.animationDelay = `${Array.from(document.querySelectorAll('.experience-item')).indexOf(entry.target) * 0.2}s`;
@@ -93,9 +94,14 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all sections and cards
-document.querySelectorAll('section, .project-card, .research-item').forEach(el => {
+document.querySelectorAll('section, .project-card, .research-item, .skill-item').forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
+});
+
+// Add quantum pulse effect to skill items
+document.querySelectorAll('.skill-item').forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.1}s`;
 });
 
 // Animate skill bars
@@ -110,6 +116,20 @@ function animateSkillBars() {
     });
 }
 
+// Quantum-themed skills animation
+function animateQuantumSkills() {
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.add('quantum-reveal');
+            const icon = item.querySelector('.skill-icon');
+            if (icon) {
+                icon.style.animation = 'quantumSpin 1s ease-out';
+            }
+        }, index * 150);
+    });
+}
+
 // Animate achievement numbers
 function animateNumbers() {
     const numbers = document.querySelectorAll('.achievement-number');
@@ -117,7 +137,7 @@ function animateNumbers() {
         const target = parseInt(number.textContent);
         const increment = target / 50;
         let current = 0;
-        
+
         const timer = setInterval(() => {
             current += increment;
             if (current >= target) {
@@ -133,7 +153,7 @@ function animateNumbers() {
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const parallaxElements = document.querySelectorAll('.quantum-bg, .quantum-particle');
-    
+
     parallaxElements.forEach(element => {
         const speed = 0.5;
         element.style.transform = `translateY(${scrolled * speed}px)`;
@@ -144,7 +164,7 @@ window.addEventListener('scroll', () => {
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.textContent = '';
-    
+
     function type() {
         if (i < text.length) {
             element.textContent += text.charAt(i);
@@ -152,7 +172,7 @@ function typeWriter(element, text, speed = 100) {
             setTimeout(type, speed);
         }
     }
-    
+
     type();
 }
 
@@ -180,9 +200,9 @@ function createQuantumParticle() {
         left: ${Math.random() * 100}vw;
         opacity: 0.6;
     `;
-    
+
     document.body.appendChild(particle);
-    
+
     setTimeout(() => {
         particle.remove();
     }, 8000);
@@ -220,23 +240,23 @@ const contactForm = document.querySelector('.contact-form form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         // Get form data
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData);
-        
+
         // Simple form validation
         if (!data.name || !data.email || !data.message) {
             alert('Please fill in all required fields.');
             return;
         }
-        
+
         // Simulate form submission
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
-        
+
         setTimeout(() => {
             alert('Thank you for your message! I\'ll get back to you soon.');
             contactForm.reset();
@@ -252,7 +272,7 @@ document.querySelectorAll('.project-card').forEach(card => {
         const icon = card.querySelector('.project-icon i');
         icon.style.animation = 'pulse 0.5s ease-in-out';
     });
-    
+
     card.addEventListener('mouseleave', () => {
         const icon = card.querySelector('.project-icon i');
         icon.style.animation = '';
